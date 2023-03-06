@@ -4,3 +4,6 @@ displayName: LoadTestWeather
 testPlan: GetWeather.jmx
 description: 'Load test the GetWeatherAPI'
 engineInstances: 1
+failureCriteria: 
+    - avg(response_time_ms) > 100
+    - percentage(error) > 20
