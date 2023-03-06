@@ -1,0 +1,46 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  webAppName: 'LoadTestFinalWebService'
+  serviceConnection: 'Load Test Service Connection'
+  azureSubscriptionId: 'ea123d98-1ab7-4caf-b4df-f9d1cd16eaee'
+  loadTestResource: 'FirstResourceInstance'
+  loadTestResourceGroup: 'FirstResourceGroup'
+  location: 'EASTUS'
+
+
+stages:
+- stage: LoadTest
+  displayName: Load Test
+  jobs:
+  - job: LoadTest
+    displayName: Load Test
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    
+    - task: AzureLoadTest@1
+      inputs:
+        azureSubscription: $(serviceConnection)
+        loadTestConfigFile: 'SampleApp.yaml'
+        resourceGroup: $(loadTestResourceGroup)
+        loadTestResource: $(loadTestResource)
+        env: |
+          [
+            {
+            "name": "webapp",
+            "value": "demo.automationtesting.in"
+            }
+          ]
+          
+    - publish: $(System.DefaultWorkingDirectory)/loadTest
+      artifact: results
