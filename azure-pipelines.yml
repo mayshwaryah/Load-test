@@ -38,7 +38,7 @@ stages:
           [
             {
             "name": "webapp",
-            "value": "demo.automationtesting.in"
+            "value": "openweathermap.org"
             }
           ]
           
