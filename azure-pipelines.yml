@@ -32,8 +32,8 @@ stages:
       inputs:
         azureSubscription: $(serviceConnection)
         loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: $(FirstResourceGroup)
-        loadTestResource: $(FirstResourceInstance)
+        resourceGroup: $(loadTestResourceGroup)
+        loadTestResource: $(loadTestResource)
         env: |
           [
             {
