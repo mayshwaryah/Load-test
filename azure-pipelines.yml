@@ -11,10 +11,10 @@ pool:
 
 variables:
   webAppName: 'LoadTestDemo'
-  serviceConnection: 'DemoConnection'
+  serviceConnection: 'Load test service connection'
   azureSubscriptionId: 'ea123d98-1ab7-4caf-b4df-f9d1cd16eaee'
-  loadTestResource: 'ResourceInstancetest'
-  loadTestResourceGroup: 'ResourceGrouptest'
+  loadTestResource: 'FirstResourceInstance'
+  loadTestResourceGroup: 'FirstResourceGroup'
   location: 'EASTUS'
 
 
@@ -32,8 +32,8 @@ stages:
       inputs:
         azureSubscription: $(serviceConnection)
         loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: $(ResourceGrouptest)
-        loadTestResource: $(ResourceInstancetest)
+        resourceGroup: $(FirstResourceGroup)
+        loadTestResource: $(FirstResourceInstance)
         env: |
           [
             {
