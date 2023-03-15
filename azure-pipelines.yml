@@ -38,7 +38,7 @@ stages:
           [
             {
             "name": "webapp",
-            "value": "api.openweathermap.org"
+            "value": "openweathermap.org"
             }
           ]
           
