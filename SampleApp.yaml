@@ -1,7 +1,7 @@
 version: v0.1
 testId: 6e526bcb-29ab-49bd-9de3-0698f900f657
 displayName: LoadTestWeather
-testPlan: GetWeather.jmx
+testPlan: books_CICD.jmx
 description: 'Load test the GetWeatherAPI'
 engineInstances: 1
 failureCriteria: 
